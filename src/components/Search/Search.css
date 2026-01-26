@@ -1,0 +1,24 @@
+.search {
+  width: 240px;
+  height: 32px;
+  position: relative;
+}
+
+.search__input {
+  background-color:  var(--pink-search-color);
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  line-height: 100%;
+  color: var(--white-color);
+  padding-left: 30px;
+}
+
+.search__icon {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+}
