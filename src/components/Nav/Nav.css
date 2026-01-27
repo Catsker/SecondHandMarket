@@ -1,0 +1,23 @@
+.nav {
+  display: flex;
+  gap: 16px;
+}
+
+.nav__item {
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--white-color);
+}
+
+.nav__item::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: var(--pink-4-color);
+  bottom: -4px;
+  left: 0;
+}

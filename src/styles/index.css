@@ -1,0 +1,40 @@
+@import "normalize.css";
+@import "variables.css";
+
+@font-face {
+  font-family: "SF";
+  src: url("../fonts/sf-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF";
+  src: url("../fonts/sf-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF";
+  src: url("../fonts/sf-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF";
+  src: url("../fonts/sf-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background-color: var(--light-gray-color);
+  font-family: "SF", sans-serif;
+  font-weight: 500;
+}

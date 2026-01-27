@@ -1,0 +1,27 @@
+@import "@/styles/variables.css";
+
+.header {
+  background-color: var(--primary-color);
+  padding: 24px 48px;
+}
+
+.header__container {
+  margin-inline: auto;
+  max-width: 1344px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__main {
+  display: flex;
+  align-items: center;
+  gap: 31px;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+

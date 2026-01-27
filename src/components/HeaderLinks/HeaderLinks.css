@@ -1,0 +1,13 @@
+@import "@/styles/variables.css";
+
+.links {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.links__item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
