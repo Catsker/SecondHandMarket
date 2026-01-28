@@ -1,0 +1,41 @@
+@import "@/styles/variables.css";
+
+.catalog-products-path {
+
+}
+
+.catalog-products-path__list {
+  display: flex;
+  gap: 10px;
+}
+
+.catalog-products-path__item {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.catalog-products-path__item:not(:first-child) {
+  padding-left: 16px;
+  position: relative;
+}
+
+.catalog-products-path__item:not(:first-child)::before {
+  content: '';
+  background: url("../../assets/icons/smallArrowRight.svg");
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+}
+
+.catalog-products-path__item:not(:last-child) {
+  color: var(--pink-2-color);
+}
+
+.catalog-products-path__button {
+  font-weight: inherit;
+  font-size: inherit;
+  color: inherit;
+}

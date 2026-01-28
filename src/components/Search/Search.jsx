@@ -1,13 +1,21 @@
 import './Search.css'
 import searchIcon from "@/assets/icons/Search.svg";
+import { useDispatch, useSelector } from 'react-redux';
+import { setQuery } from '@/features/globalSearch/globalSearchSlice';
 
-const Search = ({ searchValue, onInput }) => {
+const Search = () => {
+  const dispatch = useDispatch();
+  const query = useSelector(state => state.globalsearch.query);
+
+  const handleChange = (e) => {
+    dispatch(setQuery(e.target.value));
+  };
 
   return (
     <div className="search">
       <input
-        value={searchValue}
-        onInput={onInput}
+        value={query}
+        onInput={handleChange}
         className="search__input"
       />
       <img

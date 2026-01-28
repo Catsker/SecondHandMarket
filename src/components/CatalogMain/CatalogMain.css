@@ -1,0 +1,7 @@
+.catalog-main {
+  padding: 48px 113px 48px 48px;
+  gap: 48px;
+  max-width: 1440px;
+  margin-inline: auto;
+  display: flex;
+}

@@ -1,0 +1,33 @@
+@import "@/styles/variables.css";
+
+.catalog-aside {
+
+}
+
+.catalog-aside__title {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--gray-1-color);
+}
+
+.catalog-aside__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.catalog-aside__item {
+}
+
+.catalog-aside__item:not(:last-child) {
+  border-bottom: 1px solid var(--gray-2-color);
+  min-width: 204px;
+}
+
+.catalog-aside__button {
+  gap: 16px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--black-color);
+  line-height: 20px;
+  padding-block: 16px;
+}
