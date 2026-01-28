@@ -9,9 +9,7 @@ const CatalogProductsPath = () => {
   const selectedCategory = useSelector(state => state.catalog.selectedCategory);
 
   return (
-    <div
-      className="catalog-products-path"
-    >
+    <div className="catalog-products-path">
       <ul className="catalog-products-path__list">
         <li className="catalog-products-path__item">
           <button onClick={() => {

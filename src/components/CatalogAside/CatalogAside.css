@@ -1,9 +1,5 @@
 @import "@/styles/variables.css";
 
-.catalog-aside {
-
-}
-
 .catalog-aside__title {
   font-weight: 500;
   font-size: 12px;
@@ -13,9 +9,6 @@
 .catalog-aside__list {
   display: flex;
   flex-direction: column;
-}
-
-.catalog-aside__item {
 }
 
 .catalog-aside__item:not(:last-child) {

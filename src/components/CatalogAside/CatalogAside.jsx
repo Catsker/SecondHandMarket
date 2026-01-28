@@ -1,17 +1,15 @@
 import './CatalogAside.css'
 import {CATEGORIES} from '@/consts/DbMockData'
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {setCategory} from '@/features/catalog/catalogSlice';
 
-const CatalogAside = (props) => {
+const CatalogAside = () => {
   const dispatch = useDispatch();
 
   const handleClick = (item) => dispatch(setCategory(item));
 
   return (
-    <aside
-      className="catalog-aside"
-    >
+    <aside className="catalog-aside">
       <span className="catalog-aside__title">Categories</span>
       <ul className="catalog-aside__list">
         {CATEGORIES.map((item) => (
@@ -25,7 +23,6 @@ const CatalogAside = (props) => {
           </li>
         ))}
       </ul>
-
     </aside>
   )
 }
