@@ -1,15 +1,13 @@
 import './CatalogMain.css'
 import CatalogAside from "@/components/CatalogAside";
-import CatalogFilters from "@/components/CatalogFilters";
+import CatalogProducts from "@/components/CatalogProducts";
 
 const CatalogMain = () => (
   <main
     className="catalog-main"
   >
     <CatalogAside/>
-    <div>
-      <CatalogFilters/>
-    </div>
+    <CatalogProducts/>
   </main>
 )
 

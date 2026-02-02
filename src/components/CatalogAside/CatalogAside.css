@@ -17,10 +17,16 @@
 }
 
 .catalog-aside__button {
+  color: var(--black-color);
+  width: 100%;
+  text-align: start;
   gap: 16px;
   font-weight: 600;
   font-size: 14px;
-  color: var(--black-color);
   line-height: 20px;
   padding-block: 16px;
+}
+
+.catalog-aside__button:hover {
+  color: var(--gray-6-color);
 }

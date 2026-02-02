@@ -30,6 +30,10 @@
   color: var(--pink-2-color);
 }
 
+.catalog-products-path__item {
+  color: var(--gray-1-color);
+}
+
 .catalog-products-path__button {
   font-weight: inherit;
   font-size: inherit;

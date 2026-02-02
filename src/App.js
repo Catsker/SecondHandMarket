@@ -8,6 +8,7 @@ const App = () => (
     <Routes>
       <Route path="/" element={<CatalogPage/>}/>
       <Route path="/catalog" element={<CatalogPage/>}/>
+      <Route path="/catalog/:category/*" element={<CatalogPage/>} />
       <Route path="/*" element={<NotFoundPage/>}/>
     </Routes>
   </BrowserRouter>

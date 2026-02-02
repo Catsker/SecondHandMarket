@@ -1,35 +1,54 @@
-import './CatalogProductsPath.css'
-import { useSelector, useDispatch } from 'react-redux';
-import { resetAsideCategory } from '@/features/topFilter/topFilterSlice';
-import { resetCategory } from '@/features/catalog/catalogSlice';
+import './CatalogProductsPath.css';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const CatalogProductsPath = () => {
-  const dispatch = useDispatch();
-  const activeCategory = useSelector(state => state.topfilter.category);
-  const selectedCategory = useSelector(state => state.catalog.selectedCategory);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const segments = location.pathname.split('/').filter(Boolean);
+  const catalogIndex = segments.indexOf('catalog');
+  const category = segments[catalogIndex + 1] || null;
+
+  const searchParams = new URLSearchParams(location.search);
+  const filter = searchParams.get('sort');
+
+  const handleHomeClick = () => navigate('/catalog');
 
   return (
     <div className="catalog-products-path">
       <ul className="catalog-products-path__list">
         <li className="catalog-products-path__item">
-          <button onClick={() => {
-            dispatch(resetCategory())
-            dispatch(resetAsideCategory())
-          }} className="catalog-products-path__button">Home</button>
+          <button
+            className="catalog-products-path__button"
+            onClick={handleHomeClick}
+          >
+            Home
+          </button>
         </li>
-        {activeCategory && (
+
+        {category && (
           <li className="catalog-products-path__item">
-            <button onClick={() => dispatch(resetCategory())} className="catalog-products-path__button">{activeCategory}</button>
+            <button
+              className="catalog-products-path__button"
+              onClick={() => navigate(`/catalog/${category}`)}
+            >
+              {category}
+            </button>
           </li>
         )}
-        {selectedCategory && (
+
+        {filter && (
           <li className="catalog-products-path__item">
-            <button className="catalog-products-path__button">{selectedCategory.name}</button>
+            <button
+              className="catalog-products-path__button"
+            >
+              {filter}
+            </button>
           </li>
         )}
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default CatalogProductsPath
+export default CatalogProductsPath;
