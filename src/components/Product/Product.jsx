@@ -1,7 +1,7 @@
-import './Product.css'
+import {useState} from "react";
 import Cart from '@/assets/icons/CartGray.svg'
 import Heart from '@/assets/icons/WhiteHeart.svg'
-import {useState} from "react";
+import './Product.css'
 
 const Product = ({product}) => {
   const [isProductInCart, setIsProductInCart] = useState(false)

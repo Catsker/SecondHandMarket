@@ -1,9 +1,10 @@
-import './Products.css';
-import Product from "@/components/Product";
 import { useState, useEffect } from "react";
-import { useGetProductsQuery } from '@/store/products.api';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { useDebounce } from "@/hooks/useDebounce";
+import { useGetProductsQuery } from '@/store/products.api';
+import Product from "@/components/Product";
+import './Products.css';
+
 
 const LIMIT = 24;
 

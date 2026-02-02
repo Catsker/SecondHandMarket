@@ -1,18 +1,14 @@
-import './CatalogPage.css'
 import Header from "@/components/Header";
 import TopFilter from "@/components/TopSort";
-import {useState} from "react";
-import CatalogMain from "@/components/CatalogMain";
+import Content from "@/components/Content";
+import './CatalogPage.css'
 
-const CatalogPage = () => {
-
-  return (
-    <div>
-      <Header />
-      <TopFilter />
-      <CatalogMain />
-    </div>
-  )
-}
+const CatalogPage = () => (
+  <div>
+    <Header/>
+    <TopFilter/>
+    <Content/>
+  </div>
+)
 
 export default CatalogPage

@@ -1,10 +1,10 @@
 import './CatalogProducts.css'
-import CatalogProductsPath from '@/components/CatalogProductsPath'
+import Breadcrumbs from '@/components/Breadcrumbs'
 import Products from '@/components/Products'
 
 const CatalogProducts = () => (
   <div className="catalog-products">
-    <CatalogProductsPath />
+    <Breadcrumbs />
     <Products />
   </div>
 )

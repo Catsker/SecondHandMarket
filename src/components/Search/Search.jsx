@@ -1,12 +1,12 @@
-import './Search.css';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import searchIcon from "@/assets/icons/Search.svg";
-import { useLocation, useNavigate } from 'react-router-dom';
+import './Search.css';
 
 const Search = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const searchParams = new URLSearchParams(location.search);
+  const [searchParams] = useSearchParams();
   const query = searchParams.get('query') || '';
 
   const handleChange = (e) => {
@@ -20,7 +20,7 @@ const Search = () => {
 
     navigate({
       pathname: location.pathname,
-      search: searchParams.toString() ? `?${searchParams.toString()}` : '',
+      search: searchParams.size > 0 ? searchParams.toString() : '',
     });
   };
 

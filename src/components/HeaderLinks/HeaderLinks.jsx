@@ -1,9 +1,9 @@
-import './HeaderLinks.css'
 import {Link} from "react-router-dom";
 import heartIcon from "@/assets/icons/Heart.svg";
 import cartIcon from "@/assets/icons/Cart.svg";
 import profileIcon from "@/assets/icons/Profile.svg";
 import {ROUTES} from "@/consts/Routes";
+import './HeaderLinks.css'
 
 const HeaderLinks = () => {
   const routes = [

@@ -1,8 +1,8 @@
-import './CatalogAside.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useGetCategoriesQuery } from '@/store/categories.api';
+import './CatalogItems.css';
 
-const CatalogAside = () => {
+const CatalogItems = () => {
   const { data: categories, isLoading, isError } = useGetCategoriesQuery();
 
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const CatalogAside = () => {
 
   const currentCategory = pathSegments[catalogIndex + 1] || null;
 
-  const handleClick = (item) => {
+  const setCategory = (item) => {
     const newCategory = currentCategory === item.slug ? null : item.slug;
 
     const searchParams = location.search;
@@ -25,23 +25,26 @@ const CatalogAside = () => {
       newCategory
     ].filter(Boolean).join('/');
 
-    navigate(`/${newPath}${searchParams}`);
+    navigate({
+      pathname: `/${newPath}`,
+      search: searchParams,
+    });
   };
 
   if (isLoading) return <p>Category Loading</p>;
   if (isError) return <p>Error Category Loading</p>;
 
   return (
-    <aside className="catalog-aside">
-      <span className="catalog-aside__title">Categories</span>
-      <ul className="catalog-aside__list">
+    <aside className="catalog-items">
+      <span className="catalog-items__title">Categories</span>
+      <ul className="catalog-items__list">
         {categories.map((item) => (
-          <li className="catalog-aside__item" key={item.slug}>
+          <li className="catalog-items__item" key={item.slug}>
             <button
-              className={`catalog-aside__button ${
-                currentCategory === item.slug ? 'catalog-aside__button--active' : ''
+              className={`catalog-items__button ${
+                currentCategory === item.slug ? 'catalog-items__button--active' : ''
               }`}
-              onClick={() => handleClick(item)}
+              onClick={() => setCategory(item)}
             >
               {item.name}
             </button>
@@ -52,4 +55,4 @@ const CatalogAside = () => {
   );
 };
 
-export default CatalogAside;
+export default CatalogItems;

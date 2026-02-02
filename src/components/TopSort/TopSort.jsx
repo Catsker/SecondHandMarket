@@ -1,5 +1,5 @@
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import "./TopSort.css";
-import { useLocation, useNavigate } from "react-router-dom";
 
 const SORT = [
   'Ascending price',
@@ -12,11 +12,10 @@ const TopSort = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const searchParams = new URLSearchParams(location.search);
-  const currentFilter = searchParams.get(paramName);
+  const [searchParams] = useSearchParams()
 
   const handleClick = (item) => {
-    if (currentFilter === item) {
+    if (searchParams.get(paramName) === item) {
       searchParams.delete(paramName);
     } else {
       searchParams.set(paramName, item);
@@ -37,7 +36,7 @@ const TopSort = () => {
               <button
                 type="button"
                 className={`filter__button ${
-                  currentFilter === item ? 'filter__button--active' : ''
+                  searchParams.get(paramName) === item ? 'filter__button--active' : ''
                 }`}
                 onClick={() => handleClick(item)}
               >

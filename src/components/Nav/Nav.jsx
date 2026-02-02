@@ -1,6 +1,6 @@
-import './Nav.css'
 import {Link} from "react-router-dom";
 import {ROUTES} from '@/consts/Routes.js'
+import './Nav.css'
 
 const Nav = () => {
   const routes = [
