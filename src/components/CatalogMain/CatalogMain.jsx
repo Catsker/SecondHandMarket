@@ -3,9 +3,7 @@ import CatalogAside from "@/components/CatalogAside";
 import CatalogProducts from "@/components/CatalogProducts";
 
 const CatalogMain = () => (
-  <main
-    className="catalog-main"
-  >
+  <main className="catalog-main">
     <CatalogAside/>
     <CatalogProducts/>
   </main>
