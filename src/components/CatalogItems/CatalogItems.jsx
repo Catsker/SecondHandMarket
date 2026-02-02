@@ -20,13 +20,13 @@ const CatalogItems = () => {
 
     const searchParams = location.search;
 
-    const newPath = [
+    const newPath = '/' + [
       ...baseSegments,
       newCategory
     ].filter(Boolean).join('/');
 
     navigate({
-      pathname: `/${newPath}`,
+      pathname: newPath,
       search: searchParams,
     });
   };
