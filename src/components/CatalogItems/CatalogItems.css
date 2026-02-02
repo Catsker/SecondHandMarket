@@ -1,0 +1,32 @@
+@import "@/styles/variables.css";
+
+.catalog-items__title {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--gray-1-color);
+}
+
+.catalog-items__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.catalog-items__item:not(:last-child) {
+  border-bottom: 1px solid var(--gray-2-color);
+  min-width: 204px;
+}
+
+.catalog-items__button {
+  color: var(--black-color);
+  width: 100%;
+  text-align: start;
+  gap: 16px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  padding-block: 16px;
+}
+
+.catalog-items__button:hover {
+  color: var(--gray-6-color);
+}
