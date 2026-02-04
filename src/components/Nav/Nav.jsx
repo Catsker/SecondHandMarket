@@ -21,7 +21,7 @@ const Nav = () => {
   return (
     <nav className="nav">
       {routes.map((route, index) => (
-        <Link key={route} className="nav__item" to={route.to}>{route.text}</Link>
+        <Link key={route.to} className="nav__item" to={route.to}>{route.text}</Link>
       ))}
     </nav>
   )

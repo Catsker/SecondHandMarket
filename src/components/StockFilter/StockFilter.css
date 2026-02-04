@@ -1,0 +1,34 @@
+@import '@/styles/variables.css';
+
+.stock-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding-block: 24px 28px;
+}
+
+.stock-filter__item {
+  position: relative;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--black-color);
+}
+
+.stock-filter__item::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--gray-2-color);
+}
+
+.stock-filter__item--active {
+  color: var(--light-red-color);
+}
+
+.stock-filter__item--active::after {
+  background-color: var(--light-red-color);
+}

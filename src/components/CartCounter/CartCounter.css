@@ -1,0 +1,29 @@
+@import "@/styles/variables.css";
+
+.cart-counter {
+  color: var(--light-red-color);
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  height: 32px;
+}
+
+.cart-counter__button {
+  color: var(--light-red-color);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.cart-counter__number {
+  color: var(--light-red-color);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
