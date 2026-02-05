@@ -7,3 +7,18 @@ export const ROUTES = {
   cart: '/cart',
   profile: '/profile',
 }
+
+export const NAV_ROUTES = [
+  {
+    to: ROUTES.about,
+    text: 'About us',
+  },
+  {
+    to: ROUTES.allshops,
+    text: 'All shops',
+  },
+  {
+    to: ROUTES.merchant,
+    text: 'Become a merchant',
+  },
+]

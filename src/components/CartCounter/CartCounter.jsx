@@ -1,24 +1,13 @@
 import './CartCounter.css'
+import CartCounterButton from "@/components/CartCounterButton";
 
 const CartCounter = ({increase, decrease, value}) => {
 
   return (
     <div className="cart-counter">
-      <button
-        className="cart-counter__button"
-        type="button"
-        onClick={decrease}
-      >
-        -
-      </button>
+      <CartCounterButton onClick={decrease}>-</CartCounterButton>
       <span className="cart-counter__number">{value}</span>
-      <button
-        className="cart-counter__button"
-        type="button"
-        onClick={increase}
-      >
-        +
-      </button>
+      <CartCounterButton onClick={increase}>+</CartCounterButton>
     </div>
   )
 }

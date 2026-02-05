@@ -2,11 +2,11 @@ import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import './StockFilter.css'
 
 const FILTER = [
-  'In Stock',
-  'Out of Stock'
+  'High rating first',
+  'Low rating first',
 ]
 
-const paramName = 'stock'
+const paramName = 'ratingsort'
 
 const StockFilter = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const StockFilter = () => {
 
     navigate({
       pathname: location.pathname,
-      search: searchParams.toString() ? `?${searchParams.toString()}` : "",
+      search: searchParams.toString()
     });
   };
 

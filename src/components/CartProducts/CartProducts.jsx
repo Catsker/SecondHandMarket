@@ -1,61 +1,42 @@
-import { useEffect, useState } from 'react'
+import {useEffect, useState} from 'react'
 import CartProduct from '@/components/CartProduct'
-import {Link} from 'react-router-dom'
 import './CartProducts.css'
+import {useSearchParams} from "react-router-dom";
+import {useDispatch, useSelector} from 'react-redux';
+import {
+  increment,
+  decrement,
+} from '@/store/cart.slice';
 
 const CartProducts = () => {
-  const [products, setProducts] = useState([])
+  const [searchParams] = useSearchParams();
+  const ratingSort = searchParams.get('ratingsort') || '';
 
-  useEffect(() => {
-    const cart = localStorage.getItem('cart')
-    if (cart) {
-      setProducts(JSON.parse(cart))
-    }
-  }, [])
-
-  const updateCart = (updatedProducts) => {
-    setProducts(updatedProducts)
-    localStorage.setItem('cart', JSON.stringify(updatedProducts))
-  }
-
-  const increaseQty = (id) => {
-    const updatedProducts = products.map((product) =>
-      product.id === id && product.qty < product.stock
-        ? { ...product, qty: product.qty + 1 }
-        : product
-    )
-
-    updateCart(updatedProducts)
-  }
-
-  const decreaseQty = (id) => {
-    const updatedProducts = products
-      .map((product) =>
-        product.id === id
-          ? { ...product, qty: product.qty - 1 }
-          : product
-      )
-      .filter((product) => product.qty > 0) // удаляем если qty = 0
-
-    updateCart(updatedProducts)
-  }
+  const dispatch = useDispatch();
+  const products = useSelector(state => state.cart.items);
 
   return (
     <main className="cart-products">
       {products.length === 0 ? (
-        <span className="cart-products__empty">Cart is empty <Link to='/catalog'/>Go to catalog</span>
-
+        <span className="cart-products__empty">Cart is empty</span>
       ) : (
         <ul className="cart-products__content">
-          {products.map((product) => (
-            <li key={product.id} className="cart-products__item">
-              <CartProduct
-                productData={product}
-                increase={() => increaseQty(product.id)}
-                decrease={() => decreaseQty(product.id)}
-              />
-            </li>
-          ))}
+          {products
+            .slice()
+            .sort((a, b) => {
+              if (ratingSort === 'Low rating first') return a.rating - b.rating
+              if (ratingSort === 'High rating first') return b.rating - a.rating
+              return b.title - a.title
+            })
+            .map((product) => (
+              <li key={product.id} className="cart-products__item">
+                <CartProduct
+                  productData={product}
+                  increase={() => dispatch(increment(product.id))}
+                  decrease={() => dispatch(decrement(product.id))}
+                />
+              </li>
+            ))}
         </ul>
       )}
     </main>

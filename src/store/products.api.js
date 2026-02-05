@@ -12,7 +12,7 @@ export const productsApi = createApi({
         const params = {
           limit,
           skip,
-          select: 'id,title,price,thumbnail,stock,category,rating,brand',
+          select: 'id,title,price,thumbnail,rating,category,returnPolicy,shippingInformation',
           sortBy: sort && 'price',
           order: sort === 'Ascending price' ? 'asc' : 'desc',
         };

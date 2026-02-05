@@ -1,41 +1,21 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import Cart from '@/assets/icons/CartGray.svg'
 import Heart from '@/assets/icons/WhiteHeart.svg'
 import CartCounter from "@/components/CartCounter";
-import { isInCart, addToCart, changeQty, removeFromCart } from '@/utils/cartStorage';
+import {useDispatch, useSelector} from 'react-redux';
+import {addToCart, increment, decrement} from '@/store/cart.slice';
 import './Product.css'
 
 const Product = ({product}) => {
-  const [isProductInCart, setIsProductInCart] = useState(false);
-  const [qty, setQty] = useState(1);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const cartItem = isInCart(product.id);
-    setIsProductInCart(cartItem);
-    if (cartItem) {
-      const storedItem = JSON.parse(localStorage.getItem('cart')).find(i => i.id === product.id);
-      setQty(storedItem.qty);
-    }
-  }, [product.id]);
+  const cartItem = useSelector(
+    state => state.cart.items.find(i => i.id === product.id)
+  );
 
-  const handleAddToCart = () => {
-    addToCart(product);
-    setIsProductInCart(true);
-    setQty(1);
-  };
-
-  const handleIncrease = () => {
-    const newQty = qty + 1;
-    changeQty(product.id, newQty);
-    setQty(newQty);
-  };
-
-  const handleDecrease = () => {
-    const newQty = qty - 1;
-    changeQty(product.id, newQty);
-    setQty(newQty);
-    if (newQty === 0) setIsProductInCart(false);
-  };
+  const add = () => dispatch(addToCart(product));
+  const inc = () => dispatch(increment(product.id));
+  const dec = () => dispatch(decrement(product.id));
 
   return (
     <div className="product">
@@ -51,17 +31,17 @@ const Product = ({product}) => {
           >
             {product.price} €
           </data>
-          {isProductInCart ? (
+          {cartItem ? (
             <CartCounter
-              value={qty}
-              increase={handleIncrease}
-              decrease={handleDecrease}
+              value={cartItem.quantity}
+              increase={inc}
+              decrease={dec}
             />
           ) : (
             <button
               className="product__button"
               type="button"
-              onClick={handleAddToCart}
+              onClick={add}
             >
               <img className="product__button-img" src={Cart} alt="Cart"/>
             </button>

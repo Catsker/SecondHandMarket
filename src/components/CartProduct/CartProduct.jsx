@@ -14,15 +14,20 @@ const CartProduct = ({ productData, increase, decrease }) => (
       <h4 className="cart-product__name">{productData.title}</h4>
       <div className="cart-product__price">
         <span className="cart-product__light-text">Price: </span>
-        <data className="cart-product__dark-text" value={productData.price}>{productData.price} €</data>
+        <data
+          className="cart-product__dark-text"
+          value={productData.price}
+        >
+          {productData.price} €
+        </data>
       </div>
       <div className="cart-product__return-policy">
         <span className="cart-product__light-text">Return Policy: </span>
         <span className="cart-product__dark-text">{productData.returnPolicy}</span>
       </div>
-      <div className="cart-product__stock">
-        <span className="cart-product__light-text">Stock: </span>
-        <span className="cart-product__dark-text">{productData.stock}</span>
+      <div className="cart-product__rating">
+        <span className="cart-product__light-text">Rating: </span>
+        <span className="cart-product__dark-text">{productData.rating}</span>
       </div>
       <div className="cart-product__delivery">
         <span className="cart-product__dark-text">Delivery</span>
@@ -31,7 +36,7 @@ const CartProduct = ({ productData, increase, decrease }) => (
       <div className="cart-product__count">
         <span className="cart-product__dark-text">Quantity: </span>
         <CartCounter
-          value={productData.qty}
+          value={productData.quantity}
           increase={increase}
           decrease={decrease}
         />
