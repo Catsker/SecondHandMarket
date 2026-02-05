@@ -22,7 +22,6 @@ const LoginPage = () => {
       dispatch(
         setCredentials({
           token: data.accessToken,
-          user: data,
         })
       );
 

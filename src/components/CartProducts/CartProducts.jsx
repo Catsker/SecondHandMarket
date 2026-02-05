@@ -1,16 +1,16 @@
-import {useEffect, useState} from 'react'
 import CartProduct from '@/components/CartProduct'
 import './CartProducts.css'
 import {useSearchParams} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
-import {
-  increment,
-  decrement,
-} from '@/store/cart.slice';
+import {increment, decrement} from '@/store/cart.slice';
+import {useDebounce} from "@/hooks/useDebounce";
 
 const CartProducts = () => {
   const [searchParams] = useSearchParams();
   const ratingSort = searchParams.get('ratingsort') || '';
+  const search = searchParams.get('query') || '';
+
+  const debouncedSearch = useDebounce(search, 1500);
 
   const dispatch = useDispatch();
   const products = useSelector(state => state.cart.items);
@@ -23,6 +23,7 @@ const CartProducts = () => {
         <ul className="cart-products__content">
           {products
             .slice()
+            .filter((product) => (product.title.toLowerCase().includes(debouncedSearch.toLowerCase())))
             .sort((a, b) => {
               if (ratingSort === 'Low rating first') return a.rating - b.rating
               if (ratingSort === 'High rating first') return b.rating - a.rating

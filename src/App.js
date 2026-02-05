@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import CatalogPage from '@/pages/CatalogPage';
 import CartPage from '@/pages/CartPage';
 import LoginPage from '@/pages/LoginPage';
@@ -9,14 +9,21 @@ import ProtectedRoute from '@/pages/ProtectedRoute';
 const App = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<CatalogPage />} />
-      <Route path="/login" element={<LoginPage />} />
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <CatalogPage/>
+          </ProtectedRoute>
+        }
+      />
+      <Route path="/login" element={<LoginPage/>}/>
 
       <Route
         path="/catalog"
         element={
           <ProtectedRoute>
-            <CatalogPage />
+            <CatalogPage/>
           </ProtectedRoute>
         }
       />
@@ -24,7 +31,7 @@ const App = () => (
         path="/catalog/:category/*"
         element={
           <ProtectedRoute>
-            <CatalogPage />
+            <CatalogPage/>
           </ProtectedRoute>
         }
       />
@@ -32,12 +39,12 @@ const App = () => (
         path="/cart"
         element={
           <ProtectedRoute>
-            <CartPage />
+            <CartPage/>
           </ProtectedRoute>
         }
       />
 
-      <Route path="/*" element={<NotFoundPage />} />
+      <Route path="/*" element={<NotFoundPage/>}/>
     </Routes>
   </BrowserRouter>
 );
