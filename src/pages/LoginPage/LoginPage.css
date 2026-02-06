@@ -1,0 +1,55 @@
+@import "@/styles/variables.css";
+
+.login {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px;
+}
+
+.login__form {
+  background-color: var(--white-color);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 16px;
+}
+
+.login__input {
+  padding: 12px;
+  border-radius: 999px;
+  background-color: var(--gray-9-color);
+  color: var(--black-color);
+  border: 1px solid transparent;
+  font-size: 24px;
+}
+
+.login__input:focus {
+  border-color: var(--primary-color);
+}
+
+.login__link {
+  padding: 0 16px 16px;
+}
+
+.login__submit {
+  font-size: 24px;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  padding: 12px;
+  border-radius: 999px;
+}
+
+.login__submit:disabled {
+  background-color: var(--pink-3-color);
+}
+
+.login__error {
+  color: var(--primary-color);
+  font-size: 16px;
+  text-align: start;
+}

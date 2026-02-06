@@ -1,0 +1,45 @@
+@import "@/styles/variables.css";
+
+.products {
+  width: 100%;
+  text-align: center;
+}
+
+.products__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 250px);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.products__item {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.products__item:hover {
+  scale: 1.02;
+}
+
+.products__loadmore {
+  margin-inline: auto;
+  padding: 16px 32px;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.products__loadmore:hover {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+@media (max-width: 585px) {
+  .products__list {
+    grid-template-columns: 1fr;
+  }
+}

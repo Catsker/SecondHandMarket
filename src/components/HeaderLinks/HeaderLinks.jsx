@@ -1,9 +1,9 @@
-import './HeaderLinks.css'
 import {Link} from "react-router-dom";
 import heartIcon from "@/assets/icons/Heart.svg";
 import cartIcon from "@/assets/icons/Cart.svg";
 import profileIcon from "@/assets/icons/Profile.svg";
 import {ROUTES} from "@/consts/Routes";
+import './HeaderLinks.css'
 
 const HeaderLinks = () => {
   const routes = [
@@ -27,7 +27,7 @@ const HeaderLinks = () => {
   return (
     <div className="links">
       {routes.map((route) => (
-        <Link key={route} className="links__item" to={route.to}>
+        <Link key={route.to} className="links__item" to={route.to}>
           <img className="links__icon" src={route.img} alt={route.alt} />
         </Link>
       ))}

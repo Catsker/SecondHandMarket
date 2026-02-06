@@ -1,0 +1,7 @@
+.catalog-products {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1;
+  width: 100%;
+}
