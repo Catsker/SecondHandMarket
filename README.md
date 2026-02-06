@@ -1,5 +1,7 @@
 # SecondHandMarket
 
+## **Live Demo**: [SecondHandMarket](https://secondhandmarkett.netlify.app/)
+
 ## Local launch
 
 ```git
