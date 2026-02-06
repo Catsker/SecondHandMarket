@@ -5,7 +5,6 @@ import { useGetProductsQuery } from '@/store/products.api';
 import Product from "@/components/Product";
 import './Products.css';
 
-
 const LIMIT = 24;
 
 const Products = () => {

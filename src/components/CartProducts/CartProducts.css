@@ -1,0 +1,24 @@
+@import "@/styles/variables.css";
+
+.cart-products {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 48px 48px;
+}
+
+.cart-products__content {
+  background-color: var(--white-color);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  padding: 24px;
+  border-radius: 40px;
+  max-width: 1344px;
+  width: 100%;
+  margin-inline: auto;
+}
+
+.cart-products__empty {
+  text-align: center;
+}

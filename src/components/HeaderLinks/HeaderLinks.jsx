@@ -27,7 +27,7 @@ const HeaderLinks = () => {
   return (
     <div className="links">
       {routes.map((route) => (
-        <Link key={route} className="links__item" to={route.to}>
+        <Link key={route.to} className="links__item" to={route.to}>
           <img className="links__icon" src={route.img} alt={route.alt} />
         </Link>
       ))}
