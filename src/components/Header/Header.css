@@ -29,3 +29,15 @@
   align-items: center;
   gap: 40px;
 }
+
+@media (max-width: 875px) {
+  .header__nav {
+    display: none;
+  }
+}
+
+@media (max-width: 585px) {
+  .header__search {
+    display: none;
+  }
+}

@@ -19,6 +19,21 @@
 
 .not-found-page__link {
   color: var(--blue-color);
-  padding: 8px;
   border-radius: 999px;
+}
+
+@media (max-width: 550px) {
+  .not-found-page__maintitle {
+    font-size: 24px;
+  }
+
+  .not-found-page__description {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .not-found-page__description {
+    font-size: 16px;
+  }
 }
