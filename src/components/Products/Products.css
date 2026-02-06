@@ -37,3 +37,9 @@
   background: var(--primary-color);
   color: var(--white-color);
 }
+
+@media (max-width: 585px) {
+  .products__list {
+    grid-template-columns: 1fr;
+  }
+}

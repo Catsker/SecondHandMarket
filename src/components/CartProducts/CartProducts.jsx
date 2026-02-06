@@ -1,9 +1,9 @@
 import CartProduct from '@/components/CartProduct'
-import './CartProducts.css'
 import {useSearchParams} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
 import {increment, decrement} from '@/store/cart.slice';
 import {useDebounce} from "@/hooks/useDebounce";
+import './CartProducts.css'
 
 const CartProducts = () => {
   const [searchParams] = useSearchParams();

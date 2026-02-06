@@ -22,3 +22,15 @@
 .cart-products__empty {
   text-align: center;
 }
+
+@media (max-width: 1200px) {
+  .cart-products__content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .cart-products__content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
